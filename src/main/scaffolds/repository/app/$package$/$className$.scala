@@ -16,19 +16,19 @@ final case class $entityName$(id: Option[Long])
 class $className$ @Inject() (db: Database) {
    val logger = Logger(this.getClass)
 
-   def get$className$(limit: Int, Offset: Int): List[$className$] = db.withConnection { implicit conn =>
-     SQL"SELECT * FROM $className$ limit=#\$limit, offset=#\$offset".as($entityName$.parser.*)
+   def get$entityName$(limit: Int, offset: Int): List[$entityName$] = db.withConnection { implicit conn =>
+     SQL"SELECT * FROM $entityName$ limit=#\$limit, offset=#\$offset".as($entityName$.parser.*)
    }
 
-   def get$className$ById(id: Long): Option[Person] = db.withConnection { implicit conn =>
+   def get$entityName$ById(id: Long): Option[$entityName$] = db.withConnection { implicit conn =>
      SQL"SELECT * FROM $entityName$ WHERE id=#\$id".as($entityName$.parser.singleOpt)
    }
 
-   def delete$className$(entity: $className$): Unit = db.withConnection { implicit conn =>
+   def delete$entityName$(entity: $entityName$): Unit = db.withConnection { implicit conn =>
      SQL"DELETE FROM $entityName$ WHERE id=#\$id".executeUpdate
    }  
 
-   def add$className$(entity: $className$): $className$ = db.withConnection { implicit conn =>
+   def add$entityName$(entity: $entityName$): $entityName$ = db.withConnection { implicit conn =>
     import anorm.SqlParser.long
     val theId = SQL"INSERT INTO $entityName$ (id) values (\${$entityName$.id})".executeInsert(long(1).single)
     person.copy(id = Option(theId))
