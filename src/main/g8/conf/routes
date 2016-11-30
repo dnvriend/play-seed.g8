@@ -1,1 +1,2 @@
 GET        /api/info        $package$.component.buildinfo.BuildInfoController.info
+GET        /api/ping        $package$.component.ping.PingController.ping
