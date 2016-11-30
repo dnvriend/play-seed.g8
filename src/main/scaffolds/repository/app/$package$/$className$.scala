@@ -13,11 +13,11 @@ object $entityName$ {
 
 final case class $entityName$(id: Option[Long])
 
-class $className$ @Inject() (db: Database)(implicit ec: ExecutionContext) {
+class $className$ @Inject() (db: Database) {
    val logger = Logger(this.getClass)
 
-   def get$className$: List[$className$] = db.withConnection { implicit conn =>
-     SQL"SELECT * FROM $className$".as($entityName$.parser.*)
+   def get$className$(limit: Int, Offset: Int): List[$className$] = db.withConnection { implicit conn =>
+     SQL"SELECT * FROM $className$ limit=#\$limit, offset=#\$offset".as($entityName$.parser.*)
    }
 
    def get$className$ById(id: Long): Option[Person] = db.withConnection { implicit conn =>
