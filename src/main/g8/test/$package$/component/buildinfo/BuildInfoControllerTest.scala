@@ -1,4 +1,4 @@
-package $package$
+package $package$.component.buildinfo
 
 import $package$.TestSpec
 
