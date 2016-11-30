@@ -30,7 +30,7 @@ class $className$ @Inject() (db: Database)(implicit ec: ExecutionContext) {
 
    def add$className$(entity: $className$): $className$ = db.withConnection { implicit conn =>
     import anorm.SqlParser.long
-    val theId = SQL"INSERT INTO $entityName$ (id) values (\${entityName$.id})".executeInsert(long(1).single)
+    val theId = SQL"INSERT INTO $entityName$ (id) values (\${$entityName$.id})".executeInsert(long(1).single)
     person.copy(id = Option(theId))
    }
 }
