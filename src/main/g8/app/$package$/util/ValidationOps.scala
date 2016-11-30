@@ -1,5 +1,6 @@
 package $package$.util
 
+import java.util.UUID
 import scala.concurrent.{ExecutionContext, Future}
 import scalaz.Scalaz._
 import scalaz._
@@ -36,7 +37,7 @@ object ValidationOps {
   }
 
   def validateUUID(fieldName: String, value: String): ValidationNel[String, UUID] =
-    Validation.fromTryCatchNonFatal(java.util.UUID.fromString(value))
+    Validation.fromTryCatchNonFatal(UUID.fromString(value))
       .leftMap(t => s"Field '\$fieldName\' is not a UUID, its current value is: '\$value'. The underlying error is: '\${t.toString}'".wrapNel)
 
   def validateNonEmpty(fieldName: String, value: String): ValidationNel[String, String] =
