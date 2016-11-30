@@ -37,7 +37,7 @@ object ValidationOps {
 
   def validateUUID(fieldName: String, value: String): ValidationNel[String, UUID] =
     Validation.fromTryCatchNonFatal(java.util.UUID.fromString(value))
-      .leftMap(t => s"Field '\$fieldName' is not a UUID, its current value is: '\$value'. The underlying error is: '\${t.toString}'".wrapNel)
+      .leftMap(t => s"Field '\$fieldName\' is not a UUID, its current value is: '\$value'. The underlying error is: '\${t.toString}'".wrapNel)
 
   def validateNonEmpty(fieldName: String, value: String): ValidationNel[String, String] =
     Option(value).filter(_.trim.nonEmpty).toSuccessNel(s"Field '\$fieldName' is empty")
