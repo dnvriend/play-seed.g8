@@ -37,14 +37,14 @@ object ValidationOps {
 
   def validateUUID(fieldName: String, value: String): ValidationNel[String, UUID] =
     Validation.fromTryCatchNonFatal(java.util.UUID.fromString(value))
-      .leftMap(t => s"Field '$fieldName' is not a UUID, its current value is: '$value'. The underlying error is: '${t.toString}'".wrapNel)
+      .leftMap(t => s"Field '\$fieldName' is not a UUID, its current value is: '\$value'. The underlying error is: '\${t.toString}'".wrapNel)
 
   def validateNonEmpty(fieldName: String, value: String): ValidationNel[String, String] =
-    Option(value).filter(_.trim.nonEmpty).toSuccessNel(s"Field '$fieldName' is empty")
+    Option(value).filter(_.trim.nonEmpty).toSuccessNel(s"Field '\$fieldName' is empty")
 
   def validateNonZero(fieldName: String, value: Long): ValidationNel[String, Long] =
-    Option(value).filter(_ == 0).toSuccessNel(s"Field '$fieldName' with value '$value' may not be zero")    
+    Option(value).filter(_ == 0).toSuccessNel(s"Field '\$fieldName' with value '\$value' may not be zero")    
 
   def validateNonNegative(fieldName: String, value: Long): ValidationNel[String, Long] =
-    Option(value).filter(_ < 0).toSuccessNel(s"Field '$fieldName' with value '$value' may not be less than zero")    
+    Option(value).filter(_ < 0).toSuccessNel(s"Field '\$fieldName' with value '\$value' may not be less than zero")    
 }
