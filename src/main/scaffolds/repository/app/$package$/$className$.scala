@@ -25,7 +25,7 @@ class $className$ @Inject() (db: Database) {
    }
 
    def delete$entityName$($entityName;format="lower"$: $entityName$): Unit = db.withConnection { implicit conn =>
-     SQL"DELETE FROM $entityName;format="lower"$ WHERE id=#\$$entityName;format="lower"$.id".executeUpdate
+     SQL"DELETE FROM $entityName;format="lower"$ WHERE id=\${$entityName;format="lower"$.id}".executeUpdate
    }  
 
    def add$entityName$($entityName;format="lower"$: $entityName$): $entityName$ = db.withConnection { implicit conn =>
