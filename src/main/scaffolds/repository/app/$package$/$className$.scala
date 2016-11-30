@@ -21,16 +21,16 @@ class $className$ @Inject() (db: Database)(implicit ec: ExecutionContext) {
    }
 
    def get$className$ById(id: Long): Option[Person] = db.withConnection { implicit conn =>
-     SQL"SELECT * FROM $entityName$ WHERE id=#$id".as($entityName$.parser.singleOpt)
+     SQL"SELECT * FROM $entityName$ WHERE id=#\$id".as($entityName$.parser.singleOpt)
    }
 
    def delete$className$(entity: $className$): Unit = db.withConnection { implicit conn =>
-     SQL"DELETE FROM $entityName$ WHERE id=#$id".executeUpdate
+     SQL"DELETE FROM $entityName$ WHERE id=#\$id".executeUpdate
    }  
 
    def add$className$(entity: $className$): $className$ = db.withConnection { implicit conn =>
     import anorm.SqlParser.long
-    val theId = SQL"INSERT INTO $entityName$ (id) values (${person.id})".executeInsert(long(1).single)
+    val theId = SQL"INSERT INTO $entityName$ (id) values (\${entityName$.id})".executeInsert(long(1).single)
     person.copy(id = Option(theId))
    }
 }
