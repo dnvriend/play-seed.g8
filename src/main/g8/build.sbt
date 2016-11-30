@@ -9,6 +9,9 @@ scalaOrganization := "org.typelevel"
 scalacOptions += "-Ypartial-unification" // enable fix for SI-2712
 scalacOptions += "-Yliteral-types"       // enable SIP-23 implementation
 
+libraryDependencies += ws
+libraryDependencies += jdbc
+libraryDependencies += evolutions
 libraryDependencies += "org.scalaz" %% "scalaz-core" % "7.2.7"
 libraryDependencies += "org.typelevel" %% "scalaz-outlaws" % "0.2"
 libraryDependencies += "com.chuusai" %% "shapeless" % "2.3.2"
