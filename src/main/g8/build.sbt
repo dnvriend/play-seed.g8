@@ -10,17 +10,23 @@ scalacOptions += "-Ypartial-unification" // enable fix for SI-2712
 scalacOptions += "-Yliteral-types"       // enable SIP-23 implementation
 
 libraryDependencies += ws
-libraryDependencies += jdbc
-libraryDependencies += evolutions
 libraryDependencies += "org.scalaz" %% "scalaz-core" % "7.2.7"
 libraryDependencies += "org.typelevel" %% "scalaz-outlaws" % "0.2"
 libraryDependencies += "com.chuusai" %% "shapeless" % "2.3.2"
-libraryDependencies += "com.h2database" % "h2" % "1.4.193"
+libraryDependencies += "com.github.nscala-time" %% "nscala-time" % "2.14.0"
+libraryDependencies += "com.typesafe.play" %% "play-json" % "2.5.10"
+
+// database support
+libraryDependencies += jdbc
+libraryDependencies += evolutions
 libraryDependencies += "com.zaxxer" % "HikariCP" % "2.5.1"
 libraryDependencies += "com.typesafe.play" %% "anorm" % "2.5.2"
-libraryDependencies += "com.typesafe.play" %% "play-json" % "2.5.10"
-libraryDependencies += "com.typesafe.akka" %% "akka-slf4j" % "2.4.14"
-libraryDependencies += "com.github.nscala-time" %% "nscala-time" % "2.14.0"
+// database driver
+libraryDependencies += "com.h2database" % "h2" % "1.4.193"
+//libraryDependencies += "org.postgresql" % "postgresql" % "9.4.1212"
+//libraryDependencies += "mysql" % "mysql-connector-java" % "6.0.5"
+
+// testing
 libraryDependencies += "org.typelevel" %% "scalaz-scalatest" % "1.1.0" % Test  
 libraryDependencies += "com.github.dnvriend" %% "akka-persistence-inmemory" % "1.3.15" % Test  
 libraryDependencies += "org.mockito" % "mockito-core" % "2.2.21" % Test
