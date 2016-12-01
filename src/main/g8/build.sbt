@@ -16,6 +16,9 @@ libraryDependencies += "com.chuusai" %% "shapeless" % "2.3.2"
 libraryDependencies += "com.github.nscala-time" %% "nscala-time" % "2.14.0"
 libraryDependencies += "com.typesafe.play" %% "play-json" % "2.5.10"
 
+// kafka
+libraryDependencies += "com.typesafe.akka" %% "akka-stream-kafka" % "0.13"
+
 // database support
 libraryDependencies += jdbc
 libraryDependencies += evolutions
