@@ -1,4 +1,4 @@
 GET        /api/info                $package$.component.buildinfo.BuildInfoController.info
 GET        /api/ping                $package$.component.ping.PingController.ping
 
-PUT        /kafka/:name/:age        $package.component.kafka.controller.KafkaController.putOnKafka(name: String, age: Int)
+PUT        /kafka/:name/:age        $package.component.kafka.controller.KafkaController.putOnKafka\(name: String, age: Int)
