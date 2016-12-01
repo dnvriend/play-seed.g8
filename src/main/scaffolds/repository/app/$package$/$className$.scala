@@ -8,7 +8,9 @@ import javax.inject.Inject
 import play.api.Logger
 
 object $entityName$ {
-  val parser: RowParser[$entityName$] = Macro.namedParser[$entityName$]
+  val namedParser: RowParser[$entityName$] = Macro.namedParser[$entityName$]
+  val indexedParser: RowParser[$entityName$] = Macro.indexedParser[$entityName$]
+  val offsetParser: RowParser[$entityName$] = Macro.offsetParser[$entityName$]
 }
 
 final case class $entityName$(id: Option[Long])

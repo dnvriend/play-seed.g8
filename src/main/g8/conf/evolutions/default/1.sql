@@ -1,5 +1,3 @@
-# Users schema
-
 # --- !Ups
 
 CREATE TABLE person (
@@ -8,6 +6,15 @@ CREATE TABLE person (
     age INT NOT NULL
 );
 
+CREATE TABLE kafka_offsets (
+  group_id VARCHAR(255) NOT NULL,
+  topic VARCHAR(255) NOT NULL,
+  partition BIGINT,
+  topic_offset BIGINT
+);
+
 # --- !Downs
 
 DROP TABLE person;
+
+DROP TABLE kafka_offsets;
