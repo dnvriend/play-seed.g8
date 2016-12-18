@@ -35,8 +35,8 @@ class TestSpec extends FlatSpec
     app.injector.instanceOf[A](BindingKey(ct.runtimeClass.asInstanceOf[Class[A]]).qualifiedWith(name))
 
   // set the port number of the HTTP server
-  override lazy val port: Int = getAnnotatedComponent[Int]("test-port")
-  implicit val timeout: Timeout = getAnnotatedComponent[Timeout]("timeout")
+  override lazy val port: Int = 8080
+  implicit val timeout: Timeout = 10.seconds
   implicit val pc: PatienceConfig = PatienceConfig(timeout = 30.seconds, interval = 300.millis)
   implicit val system: ActorSystem = getComponent[ActorSystem]
   implicit val ec: ExecutionContext = getComponent[ExecutionContext]
