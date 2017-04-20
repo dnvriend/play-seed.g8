@@ -4,12 +4,12 @@ organization := "$organization$"
 
 version := "1.0.0"
 
-scalaVersion := "2.11.8"
+scalaVersion := "2.11.11"
 
 val akkaVersion = "2.4.17"
 
 // fp
-libraryDependencies += "org.scalaz" %% "scalaz-core" % "7.2.10"
+libraryDependencies += "org.scalaz" %% "scalaz-core" % "7.2.11"
 libraryDependencies += "com.github.mpilquist" %% "simulacrum" % "0.10.0"
 //libraryDependencies += "com.chuusai" %% "shapeless" % "2.3.2"
 
