@@ -5,7 +5,7 @@ import sbt._
 
 object ProjectSettings extends AutoPlugin {
   override def trigger = allRequirements
-  override def requires = plugins.JvmPlugin && SbtDapSchemas && PlayScala
+  override def requires = plugins.JvmPlugin && PlayScala
 
   override def projectSettings = Seq(
     scalaVersion := "2.12.4",
