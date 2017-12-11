@@ -43,12 +43,12 @@ class TestSpec extends FlatSpec
   implicit val mat: Materializer = getComponent[Materializer]
 
   // ================================== Supporting Operations ====================================
-  implicit class PimpedByteArray(self: Array[Byte]) {
-    def getString: String = new String(self)
+  implicit class ByteArrayOps(that: Array[Byte]) {
+    def str: String = new String(that)
   }
 
-  implicit class PimpedFuture[T](self: Future[T]) {
-    def toTry: Try[T] = Try(self.futureValue)
+  implicit class FutureOps(that: Future[T]) {
+    def toTry: Try[T] = Try(that.futureValue)
   }
 
   implicit class SourceOps[A](src: Source[A, _]) {

@@ -1,9 +1,9 @@
 // to enable the playframework
-addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.5.14")
+addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.6.7")
 
-resolvers += Resolver.url(
-  "bintray-dnvriend-ivy-sbt-plugins",
-  url("http://dl.bintray.com/dnvriend/sbt-plugins"))(
-  Resolver.ivyStylePatterns)
+// code formatting
+addSbtPlugin("org.scalariform" % "sbt-scalariform" % "1.8.1")
 
-addSbtPlugin("com.github.dnvriend" % "sbt-scaffold-play" % "0.0.3")
+libraryDependencies += "org.scalaz" %% "scalaz-core" % "7.2.17"
+libraryDependencies += "com.amazonaws" % "aws-java-sdk" % "1.11.245"
+libraryDependencies += "com.typesafe.play" %% "play-json" % "2.6.7"
